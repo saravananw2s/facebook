@@ -14,6 +14,8 @@ node('master') {
 
         stage('test') {
              sh "echo 'Running Test'"
+             sh "php vendor/bin/phpunit --colors --debug"
+             sh "php artisan dusk --colors --debug"
              sh "php artisan serve &"
              sh "php artisan dusk"
 
