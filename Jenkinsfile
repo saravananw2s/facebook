@@ -7,7 +7,7 @@ node('master') {
             sh "echo 'ENV SETUP'"
             sh "composer require --dev laravel/dusk"
             sh "php artisan dusk:install"
-            sh "composer install --no-dev"
+            sh "composer install"
             sh "cp .env.example .env"
             sh "php artisan key:generate"
         }
