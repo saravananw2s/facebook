@@ -5,6 +5,8 @@ node('master') {
         stage('build') {
             checkout scm
             sh "echo 'ENV SETUP'"
+            sh "composer require --dev laravel/dusk"
+            sh "php artisan dusk:install"
             sh "composer install --no-dev"
             sh "cp .env.example .env"
             sh "php artisan key:generate"
